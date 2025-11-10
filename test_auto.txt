@@ -1,0 +1,2 @@
+자동 changelog 테스트 파일
+이 파일은 Git hook 테스트용입니다.
