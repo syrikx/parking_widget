@@ -27,26 +27,32 @@ struct SimpleEntry: TimelineEntry {
 
 struct ParkingWidgetEntryView : View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family
 
     var body: some View {
         ZStack {
             Color.white
 
-            VStack(spacing: 8) {
-                Image(systemName: "car.fill")
-                    .font(.system(size: 32))
-                    .foregroundColor(.blue)
+            VStack(spacing: 4) {
+                // 작은 크기일 때는 아이콘과 라벨 제거
+                if family == .systemMedium || family == .systemLarge {
+                    Image(systemName: "car.fill")
+                        .font(.system(size: 24))
+                        .foregroundColor(.blue)
 
-                Text("현재 주차 위치")
-                    .font(.caption)
-                    .foregroundColor(.gray)
+                    Text("현재 주차 위치")
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                }
 
                 Text(entry.parkingLocation)
-                    .font(.title2)
+                    .font(family == .systemSmall ? .body : .title2)
                     .fontWeight(.bold)
                     .foregroundColor(.blue)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
             }
-            .padding()
+            .padding(family == .systemSmall ? 4 : 8)
         }
     }
 }
