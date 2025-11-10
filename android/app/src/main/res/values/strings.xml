@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">주차 위치</string>
+    <string name="widget_description">현재 주차 위치를 표시합니다</string>
+    <string name="parking_icon">주차 아이콘</string>
+    <string name="current_parking">현재 주차 위치</string>
+    <string name="no_location">위치 없음</string>
+</resources>
